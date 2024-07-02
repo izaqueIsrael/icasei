@@ -1,62 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Root Config</title>
-    <link rel="stylesheet" href="/styles/main.css" />
-    <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';"
-    />
-    <meta name="importmap-type" content="systemjs-importmap" />
-    <% if (isLocal) { %>
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
-          "@challenge/root-config": "//localhost:9000/challenge-root-config.js",
-          "@challenge/videos": "http://localhost:20228/index.js",
-          "@challenge/drawer": "http://localhost:20229/index.js",
-          "@challenge/404": "http://localhost:20230/index.js"
-        }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Root Config</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';"
+  />
+  <meta name="importmap-type" content="systemjs-importmap" />
+  <% if (isLocal) { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "@challenge/root-config": "//localhost:9000/challenge-root-config.js",
+        "@challenge/videos": "http://localhost:20228/index.js",
+        "@challenge/drawer": "http://localhost:20229/index.js",
+        "@challenge/404": "http://localhost:20230/index.js"
       }
-    </script>
-    <% } %>
-    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
-  </head>
-  <body class="body">
-    <noscript> You need to enable JavaScript to run this app. </noscript>
-    <main class="main">
-      <h1 class="text">cenoura1123</h1>
-      <section class="main__container">
-        <div id="drawer-container" class="drawer"></div>
-        <div id="videos-container" class="videos"></div>
-      </section>
-    </main>
-    <script>
-      System.import("@challenge/root-config");
-    </script>
-    <import-map-overrides-full
-      show-when-local-storage="devtools"
-      dev-libs
-    ></import-map-overrides-full>
-    <div id="video-modal" class="hidden">
-      <div class="modal-content">
-        <button class="modal-button" id="close-modal">&times;</button>
-        <div class="modal-container">
-          <iframe
-            width="560"
-            height="315"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-        </div>
+    }
+  </script>
+  <% } %>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+</head>
+<body class="body">
+  <noscript> You need to enable JavaScript to run this app. </noscript>
+  <main class="main">
+    <h1 class="text">cenoura1123</h1>
+    <section class="main__container">
+      <div id="drawer-container" class="drawer"></div>
+      <div id="videos-container" class="videos"></div>
+    </section>
+  </main>
+  <script>
+    System.import("@challenge/root-config");
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+  <div id="video-modal" class="hidden">
+    <div class="modal-content">
+      <button class="modal-button" id="close-modal">&times;</button>
+      <div class="modal-container">
+        <iframe
+          width="560"
+          height="315"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
