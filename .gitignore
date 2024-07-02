@@ -1,0 +1,38 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore environment variables files
+.env
+
+# Optionally ignore other environment files (if you use .env.local, .env.test, etc.)
+.env.local
+.env.*.local
+.env.*.example
+
+# Ignore log files
+*.log
+
+# Ignore directories for temporary files
+tmp/
+temp/
+
+# Ignore MacOS specific files
+.DS_Store
+
+# Ignore build output
+dist/
+build/
+
+# Ignore TypeScript cache
+*.tsbuildinfo
+
+# Ignore IDE specific files (Optional, add your specific IDE files if needed)
+.vscode/
+.idea/
+
+# Ignore coverage reports
+coverage/
+
+# Ignore yarn and npm lock files (Optional, if you use one or the other)
+yarn.lock
+package-lock.json

@@ -1,0 +1,12 @@
+.button {
+    background-color: #f99157;
+    border-radius: 0.75rem;
+    padding: 0.25rem 2rem;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #d4411a;
+  }
+  

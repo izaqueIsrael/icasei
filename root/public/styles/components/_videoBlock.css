@@ -1,0 +1,62 @@
+.video {
+  border: 0.1rem solid #7b36e2;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.video-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 5rem;
+  gap: 1rem;
+}
+
+@media (min-width: 480px) {
+    .video-content {
+      flex-direction: row;
+    }
+  }
+  
+
+.video-block {
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
+  max-width: 320px;
+}
+
+.video-block .star {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  filter: invert(100%);
+}
+
+.video-block .star.active {
+  filter: none;
+}
+
+.img-container {
+  position: relative;
+}
+
+.ball {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: red;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.ball.clicked {
+  background-color: yellow;
+}

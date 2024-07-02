@@ -1,0 +1,8 @@
+.body {
+    position: static;
+    background: linear-gradient(45deg, #08070d, #110e1a);
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+  }
+  

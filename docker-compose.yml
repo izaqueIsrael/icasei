@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    volumes:
+      - ./back:/app
+      - /app/node_modules
+    ports:
+      - "4000:4000"
+    networks:
+      - app-network
+    command: npm start
+
+  bff:
+    build:
+      context: ./bff
+      dockerfile: Dockerfile
+    volumes:
+      - ./bff:/app
+      - /app/node_modules
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+    command: npm start
+    
+  drawer:
+    build:
+      context: ./drawer
+      dockerfile: Dockerfile
+    volumes:
+      - ./drawer:/app
+      - /app/node_modules
+    ports:
+      - "20229:20229"
+    networks:
+      - app-network
+    command: npm run start # Use um comando de desenvolvimento que observe as mudanças
+
+  root:
+    build:
+      context: ./root
+      dockerfile: Dockerfile
+    volumes:
+      - ./root:/app
+      - /app/node_modules
+    ports:
+      - "9000:9000"
+    networks:
+      - app-network
+    command: npm run start # Use um comando de desenvolvimento que observe as mudanças
+
+  videos:
+    build:
+      context: ./videos
+      dockerfile: Dockerfile
+    volumes:
+      - ./videos:/app
+      - /app/node_modules
+    ports:
+      - "20228:20228"
+    networks:
+      - app-network
+    command: npm run start # Use um comando de desenvolvimento que observe as mudanças
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:

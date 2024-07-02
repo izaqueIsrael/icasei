@@ -1,0 +1,8 @@
+:root {
+    --primary-color: #f99157;
+    --secondary-color: #d4411a;
+    --text-color: white;
+    --background-color: #08070d;
+    --background-gradient: linear-gradient(45deg, #08070d, #110e1a);
+  }
+  
