@@ -187,7 +187,7 @@ que fará com que cada teste seja executado isoladamente e se o serviço de **BF
 
 - Para fazer os testes automatizados utilizei a biblioteca do **Jest**.
 
-- Toda a acessibilidade da plataforma foi testado através do **LightHouse** no **DevTools** do navegador.
+- Toda a acessibilidade da plataforma foi testada através do **LightHouse** no **DevTools** do navegador.
 
 - A responsividade foi testado no **Chrome** e **Firefox** e feita com **CSS** e **Tailwind**.
 
