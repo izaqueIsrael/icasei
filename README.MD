@@ -74,19 +74,28 @@ Essas são as variáveis de ambiente que devem ser preenchidas:
 
 ### Método 1
 
+<br>
+
 **Primeiro Passo**
 
 Certifique-se de ter o [**Node.js**](https://nodejs.org/) instalado em seu computador.
 
+<br>
+
 **Segundo Passo**
+
 Clone o repositório na sua máquina, você pode fazer isso com o comando:
 
     git clone https://github.com/izaqueIsrael/icasei.git
+
+<br>
 
 **Terceiro Passo**
 
 Configure as variáveis de ambiente conforme explicado no tópico **Variáveis de ambiente** que está logo acima, mas resumindo, crie um arquivo **.env** na **RAIZ** do projeto, o **.env** tem que ser irmão de .env.example e certifique-se de preencher o conteúdo corretamente
 conforme explicado no tópico **Variáveis de Ambiente** que está logo acima.
+
+<br>
 
 **Quarto Passo**
 
@@ -99,6 +108,8 @@ Em seguida, rode o comando:
     npm run install:all
 
 Esse comando instalará todos os repositórios necessários em todos os projetos.
+
+<br>
 
 **Quinto Passo**
 
@@ -117,10 +128,13 @@ Agora é só acessar o localhost com a porta do serviço **ROOT** em seu navegad
 
 ### Método 2
 
+<br>
+
 **Primeiro Passo**
 
 Certifique-se de ter o [**Docker**](https://www.docker.com/products/docker-desktop/) e o **Docker Compose** instalados em seu computador.
 
+<br>
 
 **Segundo Passo**
 
@@ -128,10 +142,14 @@ Clone o repositório na sua máquina, você pode fazer isso com o comando:
 
     git clone https://github.com/izaqueIsrael/icasei.git
 
+<br>
+
 **Terceiro Passo**
 
 Configure as variáveis de ambiente conforme explicado no tópico **Variáveis de ambiente** que está logo acima, mas resumindo, crie um arquivo **.env** na **RAIZ** do projeto, o **.env** tem que ser irmão de .env.example e certifique-se de preencher o conteúdo corretamente
 conforme explicado no tópico **Variáveis de Ambiente** que está logo acima.
+
+<br>
 
 **Quarto Passo**
 
@@ -148,6 +166,8 @@ e acesse a porta a página do seu root em seu navegador.
     Exemplo de rota do ROOT:
 
     http://localhost:9000
+
+<br>
 
 ## Testes Automatizados
 
