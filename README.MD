@@ -1,5 +1,9 @@
 # iCasei Challenge
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/izaqueIsrael/images/main/challenge.png" alt="Desafio iCasei">
+</p>
+
 Este é um desafio de microserviços desenvolvido como parte do desafio proposto pela iCasei. O projeto consiste em vários microserviços que utilizam a API do YouTube para buscar e exibir vídeos. Os vídeos podem ser assistidos, pesquisados e marcados como favoritos, sendo eles salvos no banco de dados MongoDB.
 
 ## Estrutura do Projeto
@@ -192,6 +196,10 @@ que fará com que cada teste seja executado isoladamente e se o serviço de **BF
 Espero que tenham gostado, porque fiz o projeto com muito carinho.
 
 Se quiserem saber um pouco mais sobre mim, acesse meu site de portifólio [Cosmic](https://cosmic-tau.vercel.app/)
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/izaqueIsrael/images/main/cosmic.png" alt="Desafio iCasei">
+</p>
 
 ## Autor
 
