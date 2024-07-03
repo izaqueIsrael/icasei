@@ -113,7 +113,7 @@ Esse comando instalará todos os repositórios necessários em todos os projetos
 
 **Quinto Passo**
 
-Por fim, incie o projeto, você pode fazer isso digitando o comando:
+Por fim, com o **MongoDB** rodando, incie o projeto, você pode fazer isso digitando o comando:
 
     npm run start:all
 
