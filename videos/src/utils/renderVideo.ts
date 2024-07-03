@@ -9,7 +9,9 @@ export function renderVideos(
   const videoContainer = document.querySelector('.video-container') as HTMLElement;
   if (!videoContainer) return;
 
-  videoContainer.innerHTML = '';
+  while (videoContainer.firstChild) {
+    videoContainer.removeChild(videoContainer.firstChild);
+  }
 
   videos.forEach((video: YouTubeVideo) => {
     let videoId: string;
@@ -18,7 +20,6 @@ export function renderVideos(
     } else if ('videoId' in video.id) {
       videoId = video.id.videoId;
     } else {
-      // Skip rendering if videoId is not present
       return;
     }
 
@@ -44,7 +45,7 @@ export function renderVideos(
     ballButton.style.backgroundColor = isBookmarked ? 'yellow' : 'gray';
     ballButton.addEventListener('click', async (event) => {
       event.stopPropagation();
-      event.preventDefault(); // Impede o envio do formulário
+      event.preventDefault();
       const newStatus = !isBookmarked;
       try {
         if (newStatus) {
@@ -56,7 +57,7 @@ export function renderVideos(
         }
         ballButton.setAttribute('aria-label', isBookmarked ? 'desfavoritar' : 'favoritar');
         ballButton.style.backgroundColor = isBookmarked ? 'yellow' : 'gray';
-        updateFavoriteCount(); // Chama a função para atualizar a contagem de favoritos
+        updateFavoriteCount();
       } catch (error) {
         console.error('Error updating favorite status:', error);
       }
@@ -79,7 +80,6 @@ function openModal(videoId: string) {
   const modal = document.getElementById('video-modal') as HTMLDivElement;
   const iframe = modal.querySelector('iframe') as HTMLIFrameElement;
   const iframeSrc = `https://www.youtube.com/embed/${videoId}`;
-  console.log('Opening modal for videoId:', videoId, 'iframeSrc:', iframeSrc);
   iframe.src = iframeSrc;
   modal.classList.add('show');
   modal.classList.remove('hidden');

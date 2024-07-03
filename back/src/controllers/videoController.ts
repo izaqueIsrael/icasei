@@ -3,7 +3,6 @@ import VideoService from '../services/videoService';
 
 class VideoController {
   public async addVideo(req: Request, res: Response) {
-    console.log('Add video request body:', req.body);
     try {
       const video = await VideoService.addVideo(req.body);
       res.status(201).send(video);
@@ -15,7 +14,6 @@ class VideoController {
 
   public async removeVideo(req: Request, res: Response) {
     try {
-      console.log('Remove video request id:', req.params.id);
       const video = await VideoService.removeVideo(req.params.id);
       if (!video) {
         console.error('Video not found for id:', req.params.id);
@@ -29,7 +27,6 @@ class VideoController {
   }
 
   public async checkBookmarks(req: Request, res: Response) {
-    console.log('Check bookmarks request body:', req.body);
     try {
       const videoIds = req.body.videoIds;
       if (!Array.isArray(videoIds)) {
