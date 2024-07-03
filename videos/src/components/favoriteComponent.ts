@@ -1,4 +1,4 @@
-import { getAllFavorites, checkBookmarks } from '../utils/api';
+import { apiService } from '../utils/api';
 import { renderVideos } from '../utils/renderVideo';
 
 export default class FavoriteComponent {
@@ -10,9 +10,9 @@ export default class FavoriteComponent {
 
   public async fetchAndDisplayFavorites() {
     try {
-      const videos = await getAllFavorites();
+      const videos = await apiService.getAllFavorites();
       const videoIds = videos.map(video => (typeof video.id === 'string' ? video.id : video.id.videoId)).filter(id => id);
-      const bookmarkedVideoIds = await checkBookmarks(videoIds);
+      const bookmarkedVideoIds = await apiService.checkBookmarks(videoIds);
       renderVideos(videos, bookmarkedVideoIds, this.updateFavoriteCount);
     } catch (error) {
       console.error('Error fetching favorite videos:', error);

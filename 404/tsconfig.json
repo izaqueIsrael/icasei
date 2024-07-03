@@ -9,12 +9,13 @@
       "forceConsistentCasingInFileNames": true,
       "moduleResolution": "node",
       "baseUrl": ".",
+      "types": ["node", "jest", "@testing-library/jest-dom"],
       "paths": {
         "@/*": ["src/*"],
         "@actionanand/utility": ["src/types/@actionanand/utility.d.ts"]
       }
     },
     "exclude": ["node_modules", "dist"],
-    "include": ["src/global.d.ts", "src/**/*"]
+    "include": ["src/global.d.ts", "src/**/*", "src/__mocks__"]
   }
   

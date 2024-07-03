@@ -1,5 +1,6 @@
+// src/services/youtubeService.ts
 import axios from 'axios';
-import { Video,YouTubeVideo } from './models/models';
+import { Video, YouTubeVideo } from '../models/models';
 
 const API_KEY = ''; // Substitua com sua chave de API do YouTube
 const BASE_URL = 'https://www.googleapis.com/youtube/v3';

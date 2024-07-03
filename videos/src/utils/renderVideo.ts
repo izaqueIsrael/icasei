@@ -1,5 +1,5 @@
 import { YouTubeVideo } from '../types'; // Certifique-se de que o tipo YouTubeVideo está corretamente definido
-import { addVideo, removeVideo } from './api';
+import { apiService } from './api';
 
 export function renderVideos(
   videos: YouTubeVideo[],
@@ -48,12 +48,10 @@ export function renderVideos(
       const newStatus = !isBookmarked;
       try {
         if (newStatus) {
-          console.log(video)
-          await addVideo(video);
+          await apiService.addVideo(video);
           isBookmarked = true;
         } else {
-          await removeVideo(videoId);
-          console.log(video)
+          await apiService.removeVideo(videoId);
           isBookmarked = false;
         }
         ballButton.setAttribute('aria-label', isBookmarked ? 'desfavoritar' : 'favoritar');

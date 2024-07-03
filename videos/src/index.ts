@@ -5,9 +5,7 @@ import VideoComponent from './components/videoComponent';
 import FavoriteComponent from './components/favoriteComponent';
 import { setupModal } from './utils/modal';
 import { AppProps } from './types';
-import axios from 'axios';
-
-const BACKEND_URL = 'http://localhost:5000'; // URL do BFF
+import { apiService } from './utils/api';
 
 class App {
   private videoComponent: VideoComponent;
@@ -75,8 +73,7 @@ class App {
 
   private async updateFavoriteCount() {
     try {
-      const response = await axios.get(`${BACKEND_URL}/favorites/count`);
-      const count = response.data.count;
+      const count = await apiService.getFavoriteCount();
       const countElement = document.querySelector('.favorite-count') as HTMLElement | null;
       if (countElement) {
         countElement.textContent = `(${count})`;
