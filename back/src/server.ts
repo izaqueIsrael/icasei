@@ -1,9 +1,12 @@
 import mongoose from 'mongoose';
 import app from './app';
+import dotenv from 'dotenv';
+import path from 'path';
 
-const PORT = process.env.PORT || 4000;
-const MONGODB_URI ='mongodb://localhost:27017/youtube-video-service';
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
+const PORT = process.env.BACK_PORT;
+const MONGODB_URI = process.env.MONGO_URL || 'mongodb://localhost:27017/youtube-video-service';
 
 mongoose.connect(MONGODB_URI, {}).then(() => {
   console.log('Connected to MongoDB');

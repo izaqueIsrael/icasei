@@ -1,4 +1,3 @@
-// src/routes/videoRoutes.ts
 import { Router } from 'express';
 import VideoController from '../controllers/videoController';
 

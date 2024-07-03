@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:20.15.0
 
 WORKDIR /app
 
@@ -7,6 +7,10 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 5000
+RUN ls -la /app
 
-CMD ["npm", "run", "dev"]
+RUN npm run build
+
+RUN ls -la /app/dist
+
+CMD ["node", "dist/index.js"]

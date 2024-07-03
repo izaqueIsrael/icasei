@@ -1,9 +1,7 @@
-// src/services/videoService.ts
 import { YouTubeVideoModel } from '../models/YoutubeVideo';
 
 class VideoService {
   public async addVideo(videoData: any) {
-    // Adicionar campos ausentes com valores padrão
     videoData.snippet.categoryId = videoData.snippet.categoryId || 'unknown';
     videoData.snippet.localized = videoData.snippet.localized || {};
     videoData.snippet.localized.title = videoData.snippet.localized.title || videoData.snippet.title;

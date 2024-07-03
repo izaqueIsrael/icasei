@@ -1,4 +1,3 @@
-// src/controllers/videoController.ts
 import { Request, Response } from 'express';
 import VideoService from '../services/videoService';
 

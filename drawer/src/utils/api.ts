@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BFF_URL = 'http://localhost:5000'; // URL do BFF
+const BFF_URL = process.env.BFF_URL
 
 export const getFavoriteCount = async (): Promise<number> => {
   try {

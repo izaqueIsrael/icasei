@@ -2,6 +2,11 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
 const packageJson = require("./package.json");
+const webpack = require("webpack");
+const dotenv = require("dotenv");
+
+// Carregar variáveis de ambiente do arquivo .env
+dotenv.config({ path: '../.env' });
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
@@ -83,6 +88,11 @@ module.exports = (env, argv) => {
         appOrParcelName: packageJson.name,
         disabled: isProduction,
       }),
+      new webpack.DefinePlugin({
+        'process.env.BFF_URL': JSON.stringify(process.env.BFF_URL),
+        'process.env.BFF_PORT': JSON.stringify(process.env.BFF_PORT),
+        'process.env.VIDEOS_PORT': JSON.stringify(process.env.VIDEOS_PORT),
+      }),
     ].filter(Boolean),
     devtool: "source-map",
     devServer: {
@@ -90,7 +100,10 @@ module.exports = (env, argv) => {
       historyApiFallback: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
       },
+      port: process.env.VIDEOS_PORT ? Number(process.env.VIDEOS_PORT) : 20228,
     },
     externals: ["single-spa"],
   };

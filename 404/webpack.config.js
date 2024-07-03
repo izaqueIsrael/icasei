@@ -2,6 +2,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const StandaloneSingleSpaPlugin = require("standalone-single-spa-webpack-plugin");
 const packageJson = require("./package.json");
+const webpack = require("webpack");
+const dotenv = require("dotenv");
+
+dotenv.config({ path: '../.env' });
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
@@ -75,6 +79,9 @@ module.exports = (env, argv) => {
         appOrParcelName: packageJson.name,
         disabled: isProduction,
       }),
+      new webpack.DefinePlugin({
+        'process.env.NOT_FOUND_PORT': JSON.stringify(process.env.NOT_FOUND_PORT),
+      }),
     ].filter(Boolean),
     devtool: "source-map",
     devServer: {
@@ -83,6 +90,7 @@ module.exports = (env, argv) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
+      port: process.env.NOT_FOUND_PORT || 20230,
     },
     externals: ["single-spa"],
   };

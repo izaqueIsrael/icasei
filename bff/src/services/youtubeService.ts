@@ -1,10 +1,13 @@
-// src/services/youtubeService.ts
 import axios from 'axios';
 import { Video, YouTubeVideo } from '../models/models';
+import dotenv from 'dotenv';
+import path from 'path';
 
-const API_KEY = ''; // Substitua com sua chave de API do YouTube
-const BASE_URL = 'https://www.googleapis.com/youtube/v3';
-const BACKEND_URL = 'http://localhost:4000/api/videos';
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
+
+const API_KEY = process.env.YOUTUBE_API_KEY;
+const BASE_URL = process.env.YOUTUBE_URL;
+const BACKEND_URL = `${process.env.BACK_URL}:${process.env.BACK_PORT}/${process.env.BACK_ROUTE}`;
 
 class YouTubeService {
   public async getVideos(): Promise<Video[]> {

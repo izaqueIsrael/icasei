@@ -4,13 +4,14 @@
     "main": "dist/index.js",
     "scripts": {
         "build": "tsc",
-        "start": "npm run build && node dist/index.js",
+        "start": "npm run build && node dist/server.js",
         "dev": "ts-node-dev src/index.ts",
         "test": "jest"
     },
     "dependencies": {
         "axios": "^0.21.1",
         "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
         "express": "^4.17.1"
     },
     "devDependencies": {

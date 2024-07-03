@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { YouTubeVideo } from '../types';
 
-const BFF_URL = 'http://localhost:5000';
+const BFF_URL = process.env.BFF_URL;
+const BFF_PORT = process.env.BFF_PORT;
 
 class ApiService {
   private baseUrl: string;
@@ -45,4 +46,4 @@ class ApiService {
   }
 }
 
-export const apiService = new ApiService(BFF_URL);
+export const apiService = new ApiService(`${BFF_URL}:${BFF_PORT}`);

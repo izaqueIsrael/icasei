@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   mongodb:
@@ -9,7 +9,9 @@ services:
     volumes:
       - mongo-data:/data/db
     networks:
-      - app-network
+      - app
+    env_file:
+      - .env
 
   back:
     build:
@@ -19,10 +21,14 @@ services:
       - ./back:/app
       - /app/node_modules
     ports:
-      - "4000:4000"
+      - "${BACK_PORT}:${BACK_PORT}"
     networks:
-      - app-network
+      - app
     command: npm start
+    depends_on:
+      - mongodb
+    env_file:
+      - .env
 
   bff:
     build:
@@ -32,11 +38,15 @@ services:
       - ./bff:/app
       - /app/node_modules
     ports:
-      - "5000:5000"
+      - "${BFF_PORT}:${BFF_PORT}"
     networks:
-      - app-network
+      - app
     command: npm start
-    
+    depends_on:
+      - back
+    env_file:
+      - .env
+
   drawer:
     build:
       context: ./drawer
@@ -45,10 +55,12 @@ services:
       - ./drawer:/app
       - /app/node_modules
     ports:
-      - "20229:20229"
+      - "${DRAWER_PORT}:${DRAWER_PORT}"
     networks:
-      - app-network
-    command: npm run start # Use um comando de desenvolvimento que observe as mudanças
+      - app
+    command: npm run start
+    env_file:
+      - .env
 
   root:
     build:
@@ -58,10 +70,12 @@ services:
       - ./root:/app
       - /app/node_modules
     ports:
-      - "9000:9000"
+      - "${ROOT_PORT}:${ROOT_PORT}"
     networks:
-      - app-network
-    command: npm run start # Use um comando de desenvolvimento que observe as mudanças
+      - app
+    command: npm run start
+    env_file:
+      - .env
 
   videos:
     build:
@@ -71,13 +85,30 @@ services:
       - ./videos:/app
       - /app/node_modules
     ports:
-      - "20228:20228"
+      - "${VIDEOS_PORT}:${VIDEOS_PORT}"
     networks:
-      - app-network
-    command: npm run start # Use um comando de desenvolvimento que observe as mudanças
+      - app
+    command: npm run start
+    env_file:
+      - .env
+
+  not-found:
+    build:
+      context: ./404
+      dockerfile: Dockerfile
+    volumes:
+      - ./404:/app
+      - /app/node_modules
+    ports:
+      - "${NOT_FOUND_PORT}:${NOT_FOUND_PORT}"
+    networks:
+      - app
+    command: npm run start
+    env_file:
+      - .env
 
 networks:
-  app-network:
+  app:
     driver: bridge
 
 volumes:
