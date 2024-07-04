@@ -41,7 +41,7 @@ export function renderVideos(
 
     const ballButton = document.createElement('button');
     ballButton.className = 'ball';
-    ballButton.setAttribute('aria-label', isBookmarked ? 'desfavoritar' : 'favoritar');
+    ballButton.setAttribute('aria-label', isBookmarked ? 'unfavorite' : 'favorite');
     ballButton.style.backgroundColor = isBookmarked ? 'yellow' : 'gray';
     ballButton.addEventListener('click', async (event) => {
       event.stopPropagation();
@@ -55,7 +55,7 @@ export function renderVideos(
           await apiService.removeVideo(videoId);
           isBookmarked = false;
         }
-        ballButton.setAttribute('aria-label', isBookmarked ? 'desfavoritar' : 'favoritar');
+        ballButton.setAttribute('aria-label', isBookmarked ? 'unfavorite' : 'favorite');
         ballButton.style.backgroundColor = isBookmarked ? 'yellow' : 'gray';
         updateFavoriteCount();
       } catch (error) {
