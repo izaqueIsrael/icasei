@@ -40,13 +40,15 @@ Para o método 2:
 
 As variáveis de ambiente estão contidas no .env.example na raiz do projeto e precisam ser preenchidas conforme o padrão:
 
-Se terminar em **_URL** deve ser preenchida com **http://localhost** ou, se estiver usando Docker, deve preencher com o nome do serviço ao invés de localhost. Com exceção de **MONGO_URL**, nele, coloque o endereço do seu servidor **MongoDB** por completo.
+- Se terminar em **_URL** deve ser preenchida com **http://localhost** ou, se estiver usando Docker, deve preencher com o nome do serviço ao invés de localhost. Com exceção de **MONGO_URL**, nele, coloque o endereço do seu servidor **MongoDB** por completo.
 
-Se terminar com **_PORT** você deve colocar uma porta válida como **3000** ou **5000**.
+- Se terminar com **_PORT** você deve colocar uma porta válida como **3000** ou **5000**.
 
-Em **YOUTUBE_API_KEY** você deve colocar a sua chave da API do youtube.
+- Em **YOUTUBE_API_KEY** você deve colocar a sua chave da API do youtube.
 
-Em **BACK_ROUTE** você deve colocar a rota do que será usada para o Back-End, como por exemplo: **api**.
+- Em **YOUTUBE_URL** você deve colocar o endereço da **API** do youtube.
+
+- Em **BACK_ROUTE** você deve colocar a rota do que será usada para o Back-End, como por exemplo: **api**.
 
 Essas são as variáveis de ambiente que devem ser preenchidas:
 
@@ -146,8 +148,13 @@ Clone o repositório na sua máquina, você pode fazer isso com o comando:
 
 **Terceiro Passo**
 
-Configure as variáveis de ambiente conforme explicado no tópico **Variáveis de ambiente** que está logo acima, mas resumindo, crie um arquivo **.env** na **RAIZ** do projeto, o **.env** tem que ser irmão de .env.example e certifique-se de preencher o conteúdo corretamente
-conforme explicado no tópico **Variáveis de Ambiente** que está logo acima.
+Se você é o avaliador(a), pode pegar o ".env" que enviei pelo email junto com a confirmação da conclusão do projeto e link do repositório e apenas alterar o **localhost** do **BACK_URL** para **http://back** e o **localhost** do **MONGO_URL** para **mongodb://mongodb:27017/youtube-video-service** que já vai dar certo.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/izaqueIsrael/images/main/rodando-com-docker.png" alt="Desafio iCasei">
+</p>
+
+Agora, se não for, configure as variáveis de ambiente conforme explicado no tópico **Variáveis de Ambiente** que está logo acima, mas resumindo, crie um arquivo **.env** na **RAIZ** do projeto, o **.env** tem que ser irmão de .env.example e certifique-se de preencher o conteúdo corretamente e conforme explicado no tópico **Variáveis de Ambiente** que está logo acima.
 
 <br>
 
